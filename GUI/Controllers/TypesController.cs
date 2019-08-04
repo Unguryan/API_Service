@@ -25,9 +25,10 @@ namespace TestTask.Controllers
         }
 
         // POST: api/Types
-        [HttpPost]
-        public void Post([FromBody] TypeBLL value)
+        [HttpPost("{NameType}", Name = "PostType")]
+        public void Post([FromBody] TypeBLL value, string NameType)
         {
+            value.NameType = NameType;
             TA.AddType(value);
         }
 
